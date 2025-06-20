@@ -1,11 +1,11 @@
 import requests
 import os
 import argparse
-from global_functions import save_photo, get_nasa_apikey
+import global_functions
 
 
 def main():
-    apikey = get_nasa_apikey()
+    apikey = global_functions.get_nasa_apikey()
     os.makedirs('images', exist_ok=True)
     url = 'https://api.nasa.gov/planetary/apod'
     parser = argparse.ArgumentParser()
@@ -23,7 +23,7 @@ def main():
         apod_url = apod_picture['url']
         filename = os.path.basename(apod_url)
         filepath = os.path.join('images/', filename)
-        save_photo(filepath, apod_url)
+        global_functions.save_photo(filepath, apod_url)
 
 
 if __name__ == '__main__':

@@ -1,11 +1,11 @@
 import os
 import argparse
 import requests
-from global_functions import get_nasa_apikey, save_photo
+import global_functions
 
 
 def main():
-    apikey = get_nasa_apikey()
+    apikey = global_functions.get_nasa_apikey()
     os.makedirs('images', exist_ok=True)
     parser = argparse.ArgumentParser()
     parser.add_argument('count')
@@ -22,7 +22,7 @@ def main():
         image_name = photo['image']
         date = photo['date'].split()[0].replace('-', '/')
         url = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image_name}.png?api_key={apikey}'
-        save_photo(f'images/{image_name}.png', url)
+        global_functions.save_photo(f'images/{image_name}.png', url)
 
 
 if __name__ == '__main__':
