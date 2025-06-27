@@ -6,13 +6,10 @@ from global_functions import save_photo
 
 def main():
     os.makedirs('images', exist_ok=True)
-    id = ''
     parser = argparse.ArgumentParser()
-    parser.add_argument('id')
+    parser.add_argument('--id', default='latest')
     args = parser.parse_args()
     id = args.id
-    if id == '':
-        id = 'latest'
     url = f'https://api.spacexdata.com/v5/launches/{id}'
     response = requests.get(url)
     response.raise_for_status()
