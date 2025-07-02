@@ -21,7 +21,7 @@ def main():
         random.shuffle(images_list)
         for image in images_list:
             bot.send_document(chat_id=chat_id, document=open(f'images/{image}', 'rb'))
-            time.sleep(delay)
+            time.sleep(delay*3600)
 
 
 if __name__ == '__main__':
