@@ -8,10 +8,7 @@ def main():
     apikey = global_functions.get_nasa_apikey()
     os.makedirs('images', exist_ok=True)
     parser = argparse.ArgumentParser(description='Скачивает фотографии с сервиса NASA EPIC')
-    parser.add_argument(
-        'count',
-        help='Позволяет выбрать количество скачиваемых фотографий'
-        )
+    parser.add_argument('count', type=int, help='Позволяет выбрать количество скачиваемых фотографий')
     args = parser.parse_args()
     count = int(args.count)
     url = 'https://api.nasa.gov/EPIC/api/natural/images'

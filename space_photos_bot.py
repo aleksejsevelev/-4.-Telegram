@@ -10,14 +10,9 @@ def main():
     load_dotenv('secret_data.env')
     token = os.getenv('TELEGRAM_TOKEN')
     bot = telegram.Bot(token=token)
-    chat_id = os.getenv('CHAT_ID')
+    chat_id = os.getenv('TG_CHAT_ID')
     parser = argparse.ArgumentParser(description='Запускает Telegram-бота публикующего фотографии космоса в канал')
-    parser.add_argument(
-        '--delay',
-        default=4,
-        type=int,
-        help='Добавляет кастомное значение задержки между публикацией фотографий(по умолчанию - 4 часа)'
-        )
+    parser.add_argument('--delay', default=4, type=int, help='Добавляет кастомное значение задержки между публикацией фотографий(по умолчанию - 4 часа)')
     args = parser.parse_args()
     delay = args.delay
     images = os.listdir('images/')

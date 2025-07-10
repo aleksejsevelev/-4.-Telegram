@@ -7,7 +7,7 @@
 ```
 NASA_TOKEN = 'Ваш API-токен NASA'
 TELEGRAM_TOKEN = 'Ваш API-токен Telegram'
-CHAT_ID = 'ID Вашего канала'
+TG_CHAT_ID = 'ID Вашего канала'
 ```
 Python3 должен быть уже установлен. Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
 ```

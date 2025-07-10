@@ -9,10 +9,7 @@ def main():
     os.makedirs('images', exist_ok=True)
     url = 'https://api.nasa.gov/planetary/apod'
     parser = argparse.ArgumentParser(description='Скачивает фотографии с сервиса NASA APOD')
-    parser.add_argument(
-        'count',
-        help='Позволяет выбрать количество скачиваемых фотографий'
-        )
+    parser.add_argument('count', type=int, help='Позволяет выбрать количество скачиваемых фотографий')
     args = parser.parse_args()
     count = args.count
     params = {
